@@ -9,4 +9,10 @@ class TasksController < ApplicationController
         @task.save
         redirect_to :action => "index"
     end
+
+    def delete
+        @task = Task.find(params[:id])
+        @task.destroy
+        redirect_to :action => "index"
+    end
 end

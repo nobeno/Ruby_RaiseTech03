@@ -2,6 +2,7 @@
 <ul>
     <% @tasks.each do |task| %>
         <li><%= link_to task.content %></li>
+        <%= link_to'[削除]',task_delete_path(task.id),method: :delete,data: {confirm:"削除してもいいですか？"} %>
     <% end %>
 </ul>
 
