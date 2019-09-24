@@ -1,0 +1,15 @@
+<h1>投稿一覧</h1>
+<ul>
+    <% @tasks.each do |task| %>
+        <li><%= link_to task.content %></li>
+    <% end %>
+</ul>
+
+<h1>新規登録</h1>
+<%= form_for @newTask, :url =>{:action => 'create'} do |f| %>
+    <%= f.label :名前 %>
+    <%= f.text_field :name %>
+    <%= f.label :内容 %>
+    <%= f.text_field :content %>
+    <%= f.submit "送信" %>
+<% end %>

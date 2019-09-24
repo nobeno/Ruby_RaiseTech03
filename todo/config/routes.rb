@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'    
+  root 'tasks#index'
+  get 'tasks/show/:id' => 'tasks#show'
+  post 'tasks/create' => 'tasks#create'   
 end
