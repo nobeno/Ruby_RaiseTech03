@@ -1,16 +1,30 @@
-<h1>投稿一覧</h1>
-<ul>
-    <% @tasks.each do |task| %>
-        <li><%= link_to task.content %></li>
-        <%= link_to'[削除]',task_delete_path(task.id),method: :delete,data: {confirm:"削除してもいいですか？"} %>
-    <% end %>
-</ul>
-
-<h1>新規登録</h1>
+<h1>新規投稿</h1>
+<div>
 <%= form_for @newTask, :url =>{:action => 'create'} do |f| %>
-    <%= f.label :名前 %>
-    <%= f.text_field :name %>
-    <%= f.label :内容 %>
-    <%= f.text_field :content %>
-    <%= f.submit "送信" %>
+    <p>
+        <%= f.label :名前 %>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :内容 %>
+        <%= f.text_field :content %>
+    </p>
+    <p><%= f.submit "送信" %></p>
 <% end %>
+</div>
+
+
+<h1>投稿一覧</h1>
+<div>
+<% @tasks.each do |task| %>
+    <p>
+        <%= task.name %> : <%= task.content %>
+        <%= link_to'[編集]',task_edit_path(task.id) %>
+        <%= link_to'[削除]',task_delete_path(task.id),method: :delete,data: {confirm:"削除してもいいですか？"} %>
+    </p>            
+<% end %>
+</div>
+
+
+
+

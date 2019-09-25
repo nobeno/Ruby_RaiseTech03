@@ -1,0 +1,13 @@
+<h1>投稿編集</h1>
+
+<%= form_tag("/tasks/#{@task.id}/update") do  %>
+<form>
+    <div class="form-group">
+        <label for="">編集する</label>
+        <textarea name="name" class="form-control"><%= @task.name%></textarea>
+        <textarea name="content" class="form-control"><%= @task.content%></textarea>     
+    </div>
+    <button type="submit">保存</button>
+</form>
+<% end %>
+
